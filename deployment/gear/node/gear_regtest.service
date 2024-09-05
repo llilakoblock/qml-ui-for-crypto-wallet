@@ -1,0 +1,14 @@
+[Unit]
+Description=Gear Dev
+After=network.target
+
+[Service]
+ExecStart=/home/ivan/.local/bin/gear --dev --unsafe-rpc-external
+User=ivan
+LimitNOFILE=8192
+TimeoutStopSec=30min
+Restart=on-failure
+RestartSec=120s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,59 @@
+qt_add_qml_module(StyleControls
+    STATIC
+    VERSION 1.0
+    NO_PLUGIN
+    URI
+        XWallet.Style.Controls
+    DEPENDENCIES
+        QtQuick
+    IMPORTS
+        QtQuick.Controls.Basic
+    RESOURCE_PREFIX /
+    QML_FILES
+        AbstractButton.qml
+        ApplicationWindow.qml
+        BusyIndicator.qml
+        Button.qml
+        CheckBox.qml
+        CheckDelegate.qml
+        ComboBox.qml
+        Container.qml
+        Control.qml
+        Dialog.qml
+        DialogButtonBox.qml
+        Drawer.qml
+        Frame.qml
+        GroupBox.qml
+        ItemDelegate.qml
+        Label.qml
+        Page.qml
+        PageIndicator.qml
+        Pane.qml
+        Popup.qml
+        ProgressBar.qml
+        RadioButton.qml
+        RadioDelegate.qml
+        RangeSlider.qml
+        RoundButton.qml
+        ScrollBar.qml
+        ScrollIndicator.qml
+        ScrollView.qml
+        Slider.qml
+        SplitView.qml
+        StackView.qml
+        SwipeDelegate.qml
+        SwipeView.qml
+        Switch.qml
+        SwitchDelegate.qml
+        TabBar.qml
+        TabButton.qml
+        TextArea.qml
+        TextField.qml
+        ToolBar.qml
+        ToolButton.qml
+        ToolTip.qml
+        Tumbler.qml
+
+        # CUSTOM TYPES
+        SearchField.qml
+)

@@ -1,0 +1,41 @@
+FROM dockcross/linux-x64:latest
+
+USER root
+
+RUN apt-get update && apt-get -y upgrade
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mc libgl-dev libx11-dev \
+  libx11-xcb-dev libfontenc-dev libice-dev libsm-dev libxau-dev libxaw7-dev \
+  libxcomposite-dev libxcursor-dev libxdamage-dev libxdmcp-dev libxext-dev \
+  libxfixes-dev libxft-dev libxi-dev libxinerama-dev libxkbfile-dev libxmu-dev \
+  libxmuu-dev libxpm-dev libxrandr-dev libxrender-dev libxres-dev libxss-dev \
+  libxt-dev libxtst-dev libxv-dev libxvmc-dev libxxf86vm-dev xtrans-dev \
+  libxcb-render0-dev libxcb-render-util0-dev libxcb-xkb-dev libxcb-icccm4-dev \
+  libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-shape0-dev \
+  libxcb-sync-dev libxcb-xfixes0-dev libxcb-xinerama0-dev xkb-data libxcb-dri3-dev \
+  uuid-dev libxcb-util0-dev x11-common gnome
+
+RUN apt-get -y install -y python3-pip python3-setuptools patchelf desktop-file-utils \
+  libgdk-pixbuf2.0-dev fakeroot strace fuse && \
+  wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage \
+  -O /usr/local/bin/appimagetool && chmod +x /usr/local/bin/appimagetool && pip3 install appimage-builder
+
+RUN apt-get -y autoremove
+
+RUN cd /work && mkdir freedom-desktop
+COPY ./ /work/freedom-desktop
+
+RUN conan profile new default && \
+  conan profile update settings.os=Linux default && \
+  conan profile update settings.os_build=Linux default && \
+  conan profile update settings.arch=x86_64 default && \
+  conan profile update settings.arch_build=x86_64 default && \
+  conan profile update settings.compiler=gcc default && \
+  conan profile update settings.compiler.version=10 default && \
+  conan profile update settings.compiler.libcxx=libstdc++11 default && \
+  cd /work/freedom-desktop && \
+  mkdir .build && \
+  cmake -DCMAKE_BUILD_TYPE=Release -GNinja -S . -B ./.build && \
+  cd /work && \
+  rm -rf ./freedom-desktop
+

@@ -1,0 +1,21 @@
+qt_add_qml_module(Components
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.UI.Components
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        VerticalSpacer.qml
+        HorizontalSpacer.qml
+        ToolTipErrorRow.qml
+        ErrorToolTip.qml
+        AssetsCarousel.qml
+        DoubleTextFields.qml
+        LineChart.qml
+        AssetsList.qml
+        SwapStepDescriber.qml
+        StackedView.qml
+)

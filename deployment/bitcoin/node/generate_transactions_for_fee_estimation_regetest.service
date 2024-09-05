@@ -1,0 +1,8 @@
+[Unit]
+Description=Generate New Transactions Bitcoin Regtest
+
+[Service]
+ExecStart=/bin/bash /blockchain/bitcoin/data/generate_transactions_for_fee_estimation_regetest.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Bitcoin Core Regtest
+After=network.target
+[Service]
+User=ivan
+Group=ivan
+WorkingDirectory=/blockchain/bitcoin/data
+Type=simple
+ExecStart=/opt/bitcoin/current/bin/bitcoind -fallbackfee=0.01 -conf=/blockchain/bitcoin/data/bitcoin.conf
+[Install]
+WantedBy=multi-user.target

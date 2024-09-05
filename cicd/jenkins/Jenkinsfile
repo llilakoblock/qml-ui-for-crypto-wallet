@@ -1,0 +1,71 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build and Test') {
+      parallel {
+        stage('Build - Win x64') {
+          agent {
+            node {
+              label 'win-cicd'
+            }
+
+          }
+          steps {
+            bat(script: './cicd/jenkins/build-freedom-win-x64.bat', encoding: 'UTF-8', returnStatus: true, returnStdout: true)
+            sh './.build/bin/tests.exe'
+            archiveArtifacts(fingerprint: true, onlyIfSuccessful: true, artifacts: '.build/install/**/*.dll, .build/install/**/*.qm, .build/install/**/*.exe, .build/install/**/*.ini')
+          }
+        }
+
+        stage('Build - Linux x64') {
+          agent {
+            docker {
+              image 'linux-x64-freedom:latest'
+            }
+
+          }
+          steps {
+            sh '''git submodule update --init
+rm -rf ./.build
+mkdir .build
+cd ./.build
+cmake -DCMAKE_BUILD_TYPE=Release -GNinja ..
+cmake --build . --target all
+cmake --build . --target install'''
+          }
+        }
+
+      }
+    }
+
+    stage('Deploy') {
+      parallel {
+        stage('Deploy - Win x64') {
+          agent {
+            node {
+              label 'win-cicd'
+            }
+
+          }
+          steps {
+            sh 'echo deploy'
+          }
+        }
+
+        stage('Deploy - Linux x64') {
+          agent {
+            node {
+              label 'linux-cicd'
+            }
+
+          }
+          steps {
+            sh 'echo deploy'
+          }
+        }
+
+      }
+    }
+
+  }
+}

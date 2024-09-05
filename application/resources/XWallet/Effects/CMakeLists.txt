@@ -1,0 +1,14 @@
+qt_add_qml_module(Effects
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.Effects
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        LiquidGradientEffect.qml
+        LinearGradientEffect.qml
+        GlassBlurEffect.qml
+)

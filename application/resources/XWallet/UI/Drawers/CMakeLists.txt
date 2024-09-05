@@ -1,0 +1,15 @@
+qt_add_qml_module(Drawers
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.UI.Drawers
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        ReceiveDrawer.qml
+        SendDrawer.qml
+        SwapDrawer.qml
+        SettingsDrawer.qml
+)

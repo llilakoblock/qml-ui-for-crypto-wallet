@@ -1,0 +1,51 @@
+﻿{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "Windows-x64-Debug",
+      "displayName": "Windows x64 Debug",
+      "description": "Target Windows with the Visual Studio development environment.",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/.build/",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "vendor": { "microsoft.com/VisualStudioSettings/CMake/1.0": { "hostOS": [ "Windows" ] } }
+    },
+    {
+      "name": "Windows-x64-Release",
+      "displayName": "Windows x64 Release",
+      "description": "Target Windows with the Visual Studio development environment.",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/.build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "vendor": { "microsoft.com/VisualStudioSettings/CMake/1.0": { "hostOS": [ "Windows" ] } }
+    },
+    {
+      "name": "Linux-x64-Debug",
+      "displayName": "Linux-x64-Debug",
+      "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+      "binaryDir": "${sourceDir}/.build/${presetName}",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "Linux-x64-Release",
+      "displayName": "Linux-x64-Release",
+      "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+      "binaryDir": "${sourceDir}/.build/${presetName}",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ]
+}

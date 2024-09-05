@@ -1,0 +1,25 @@
+qt_add_qml_module(StartupPageScreens
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.UI.Pages.StartupPageScreens
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        BaseScreen.qml
+        UnlockScreen.qml
+        WelcomeScreen.qml
+        CreatePasswordScreen.qml
+        ShowMnemonicPassphraseScreen.qml
+        CheckMnemonicPassphraseScreen.qml
+        SuggestBiometricCreationScreen.qml
+        BiometricCreationScreen.qml
+        InheritanceScreen.qml
+        SuggestInheritanceScreen.qml
+        RecoverFromInheritanceScreen.qml
+        SuggestRecoveringVariantsScreen.qml
+        RecoverFromBiometricScreen.qml
+        RecoverFromMnemonicPassphraseScreen.qml
+)

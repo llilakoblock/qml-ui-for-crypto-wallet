@@ -1,0 +1,18 @@
+[Unit]
+Description=Geth Regtest
+After=network.target
+
+[Service]
+User=ivan
+Group=ivan
+Environment=HOME=/home/ivan
+Type=simple
+ExecStart=/home/ivan/.local/bin/geth --rpc.allow-unprotected-txs --datadir=/blockchain/ethereum -dev --http.vhosts=* --authrpc.vhosts=*  --http --http.addr=0.0.0.0 --http.api admin,db,miner,shh,eth,web3,net,txpool,debug,personal --http.corsdomain "https://remix.ethereum.org"
+KillMode=process
+KillSignal=SIGINT
+TimeoutStopSec=90
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

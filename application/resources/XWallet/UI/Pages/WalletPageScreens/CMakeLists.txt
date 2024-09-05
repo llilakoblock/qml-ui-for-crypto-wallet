@@ -1,0 +1,16 @@
+qt_add_qml_module(WalletPageScreens
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.UI.Pages.WalletPageScreens
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        BaseScreen.qml
+        ChartScreen.qml
+        HistoryScreen.qml
+        SendScreen.qml
+        ReceiveScreen.qml
+)

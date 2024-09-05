@@ -1,0 +1,8 @@
+[Unit]
+Description=Generate New Block Bitcoin Regtest 3 min
+
+[Service]
+ExecStart=/bin/bash /blockchain/bitcoin/data/generate_new_block_regtest.sh
+
+[Install]
+WantedBy=multi-user.target

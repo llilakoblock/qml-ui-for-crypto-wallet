@@ -1,0 +1,129 @@
+# appimage-builder recipe see https://appimage-builder.readthedocs.io for details
+version: 1
+AppDir:
+  path: ${AIB_PATH}
+  app_info:
+    id: ${AIB_APP_INFO_ID}
+    name: ${AIB_APP_INFO_NAME}
+    icon: ${AIB_APP_INFO_ICON}
+    version: ${AIB_APP_INFO_VERSION}
+    exec: ${AIB_APP_INFO_EXEC}
+    exec_args: ${AIB_APP_INFO_EXEC_ARGS}
+  apt:
+    arch:
+    - amd64
+    allow_unauthenticated: true
+    sources:
+    - sourceline: deb http://deb.debian.org/debian/ bullseye main
+    - sourceline: deb http://security.debian.org/debian-security bullseye-security main
+    - sourceline: deb http://deb.debian.org/debian/ bullseye-updates main
+    include:
+    - adwaita-icon-theme
+    - libnss-mdns:amd64
+    - libtinfo6:amd64
+    - locales
+  files:
+    include:
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/bearer/libqgenericbearer.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/iconengines/libqsvgicon.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/imageformats/../../../../lib/libQt5Svg.so.5
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/imageformats/libqgif.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/imageformats/libqico.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/imageformats/libqjpeg.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/imageformats/libqsvg.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/../../../../lib/libQt5XcbQpa.so.5
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqeglfs.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqlinuxfb.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqminimal.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqminimalegl.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqoffscreen.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqvnc.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/platforms/libqxcb.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/sqldrivers/libqsqlite.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/sqldrivers/libqsqlmysql.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/sqldrivers/libqsqlodbc.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/sqldrivers/libqsqlpsql.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/xcbglintegrations/libqxcb-egl-integration.so
+    - ${AIB_INCLUDE_QT_BIN_PATH}/archdatadir/plugins/xcbglintegrations/libqxcb-glx-integration.so
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5Core.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5Gui.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5Network.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5PrintSupport.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5Sql.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5WebSockets.so.5
+    - ${AIB_INCLUDE_QT_LIB_PATH}/libQt5Widgets.so.5
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libGLX.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libGLdispatch.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libICE.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libLLVM-11.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libSM.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libX11.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXau.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXcursor.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXdamage.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXdmcp.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXext.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXfixes.so.3
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXrender.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libXxf86vm.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libbsd.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libedit.so.2
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libelf.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libffi.so.7
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libglapi.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libmd.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libsensors.so.5
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libstdc++.so.6
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libuuid.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libvulkan.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-dri2.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-dri3.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-icccm.so.4
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-image.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-keysyms.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-present.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-randr.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-render-util.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-sync.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-util.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-xinerama.so.0
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxcb-xkb.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libxshmfence.so.1
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libz3.so.4
+    - ${AIB_INCLUDE_SYS_LIB_PATH}/libzstd.so.1
+    - /usr/lib/locale/locale-archive
+    - /usr/share/icons/default/index.theme
+    - /usr/share/mime/inode/directory.xml
+    - /usr/share/mime/mime.cache
+    - /usr/share/mime/types
+    exclude:
+    - usr/share/man
+    - usr/share/doc/*/README.*
+    - usr/share/doc/*/changelog.*
+    - usr/share/doc/*/NEWS.*
+    - usr/share/doc/*/TODO.*
+  test:
+    fedora-30:
+      image: appimagecrafters/tests-env:fedora-30
+      command: ./AppRun
+      use_host_x: true
+    debian-stable:
+      image: appimagecrafters/tests-env:debian-stable
+      command: ./AppRun
+      use_host_x: true
+    archlinux-latest:
+      image: appimagecrafters/tests-env:archlinux-latest
+      command: ./AppRun
+      use_host_x: true
+    centos-7:
+      image: appimagecrafters/tests-env:centos-7
+      command: ./AppRun
+      use_host_x: true
+    ubuntu-xenial:
+      image: appimagecrafters/tests-env:ubuntu-xenial
+      command: ./AppRun
+      use_host_x: true
+AppImage:
+  arch: x86_64
+  update-information: guess

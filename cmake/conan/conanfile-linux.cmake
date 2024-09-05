@@ -1,0 +1,26 @@
+conan_cmake_configure(
+    GENERATORS
+        cmake_find_package
+        cmake_paths
+    REQUIRES
+        boost/1.70.0
+        protobuf/3.17.1
+        nlohmann_json/3.10.4
+        threadpool/20140926
+        plog/1.1.5
+        qt/5.15.2
+        openssl/1.1.1k
+        gtest/1.11.0
+    OPTIONS
+        qt:qttools=True
+        qt:qtsvg=True
+        qt:qtwebsockets=True
+        qt:qtgraphicaleffects=True
+        qt:with_sqlite3=True
+        qt:openssl=True
+        qt:qttranslations=True
+        qt:shared=True
+        openssl:shared=False
+        gtest:shared=False
+        boost:shared=False
+)

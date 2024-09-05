@@ -1,0 +1,17 @@
+qt_add_qml_module(Delegates
+    STATIC
+    VERSION
+        1.0
+    NO_PLUGIN
+    URI
+        XWallet.UI.Delegates
+    RESOURCE_PREFIX
+        /
+    QML_FILES
+        HistoryDelegate.qml
+        SwapAssetDelegate.qml
+        SwapHistoryDelegate.qml
+        SwapHistoryLogDelegate.qml
+        CurrencyDelegate.qml
+        AssetDelegate.qml
+)
